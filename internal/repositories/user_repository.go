@@ -22,6 +22,11 @@ var (
 	}
 )
 
+func NewUserRepository(db *sql.DB) *UserRepository {
+    return &UserRepository{Db: db}
+}
+
+
 func (r *UserRepository) GetAllUsers(ctx context.Context) ([]models.User, error) {
 
 	rows, err := r.Db.QueryContext(ctx, "SELECT id, name, last_name, email, phone, inn, balance, password FROM users")

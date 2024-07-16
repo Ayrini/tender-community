@@ -11,6 +11,10 @@ type UserHandler struct {
 	Service *services.UserService
 }
 
+func NewUserHandler(service *services.UserService) *UserHandler {
+    return &UserHandler{Service: service}
+}
+
 func (h *UserHandler) GetAllUsers(w http.ResponseWriter, r *http.Request) {
 	users, err := h.Service.GetAllUsers(r.Context())
 	if err != nil {
