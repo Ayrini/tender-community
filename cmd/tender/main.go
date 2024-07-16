@@ -38,6 +38,7 @@ func openDB(dsn string) (*sql.DB, error) {
 	return nil, err
 }
 
+// dsd
 func addSecurityHeaders(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Cross-Origin-Opener-Policy", "same-origin")
